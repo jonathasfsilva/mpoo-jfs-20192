@@ -5,10 +5,6 @@ import java.util.Date;
 public class HelloWorld {
     private String nome;
 
-    public HelloWorld(String nome) {
-        this.nome = nome;
-    }
-
     public String getNome() {
         return nome;
     }
