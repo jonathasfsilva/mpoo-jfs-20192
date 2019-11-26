@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".role.ListaRolesActivity">
+    tools:context=".role.gui.ListaRolesActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lista_roles_recyclerview"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="570dp"
-        android:text="Deslize o item para a direita para removê-lo"
+        android:text="Os rolês mais bacanas aqui para você"
         android:textColor="#CACACA"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/lista_notas_fundo_gradiente_inferior"

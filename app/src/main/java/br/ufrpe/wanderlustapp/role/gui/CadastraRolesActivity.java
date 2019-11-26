@@ -3,7 +3,9 @@ package br.ufrpe.wanderlustapp.role.gui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
@@ -23,8 +25,19 @@ public class CadastraRolesActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_formulario_role_salva, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.menu_formulario_ponto_ic_salva){
+        if(item.getItemId() == R.id.menu_formulario_role_ic_salva){
             Role role = criaRole();
             if(verficaCampos()) {
                 Sessao.instance.setRole(role);

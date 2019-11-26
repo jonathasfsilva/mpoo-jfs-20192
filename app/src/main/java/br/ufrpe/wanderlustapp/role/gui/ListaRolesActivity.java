@@ -1,5 +1,6 @@
 package br.ufrpe.wanderlustapp.role.gui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,11 @@ public class ListaRolesActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     protected void onResume() {
         Role role = Sessao.instance.getRole();
         if (role != null){
@@ -51,6 +57,7 @@ public class ListaRolesActivity extends AppCompatActivity {
 
     public void insereRole(Role role){
         roleServices.cadastrar(role);
+        adapter.adiciona(role);
         Toast.makeText(getApplicationContext(), "Rolê cadastrado", Toast.LENGTH_SHORT).show();
     }
 
