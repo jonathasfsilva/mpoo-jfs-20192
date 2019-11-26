@@ -65,10 +65,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CAMPO_FK_ID_PONTO_TURISTICO = "fk_prato";
     public static final String CAMPO_IMAGEM_PONTO = "imagem";
 
+    //Tabela Role
+    public static final String TABELA_ROLE = "tb_role";
+    public static final String CAMPO_ID_ROLE = "id";
+    public static final String CAMPO_NOME_ROLE = "nome";
+    public static final String CAMPO_DESCRICAO_ROLE = "descricao";
 
 
     private static final String[] TABELAS = {
-            TABELA_PESSOA, TABELA_USUARIO, TABELA_PAIS, TABELA_CIDADE, TABELA_PRATO, TABELA_PONTO, TABELA_PESSOA_PRATO, TABELA_PRATO_IMAGEM, TABELA_PONTO_IMAGEM
+            TABELA_PESSOA, TABELA_USUARIO, TABELA_PAIS, TABELA_CIDADE, TABELA_PRATO, TABELA_PONTO, TABELA_PESSOA_PRATO, TABELA_PRATO_IMAGEM, TABELA_PONTO_IMAGEM, TABELA_ROLE
     };
 
     public DBHelper(Context context) {
@@ -87,6 +92,7 @@ public class DBHelper extends SQLiteOpenHelper {
         createTablePessoaPrato(db);
         createTablePratoImagem(db);
         createTablePontoImagem(db);
+        createTableRole(db);
     }
 
 
@@ -211,6 +217,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 CAMPO_FK_ID_PONTO_TURISTICO, TABELA_PONTO, CAMPO_ID_PONTO);
         db.execSQL(sqlTbPontoImagem);
     }
+
+    private void createTableRole(SQLiteDatabase db){
+        String sqlTbRole =
+                "CREATE TABLE %1$s ( "  +
+                        "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "  %3$s TEXT NOT NULL, " +
+                        "  %4$s TEXT NOT NULL " +
+                        ");";
+        sqlTbRole = String.format(sqlTbRole,
+                TABELA_ROLE, CAMPO_ID_ROLE, CAMPO_NOME_ROLE, CAMPO_DESCRICAO_ROLE);
+        db.execSQL(sqlTbRole);
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
