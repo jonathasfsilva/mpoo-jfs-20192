@@ -7,6 +7,7 @@ import br.ufrpe.wanderlustapp.pontoTuristico.dominio.PontoTuristico;
 import br.ufrpe.wanderlustapp.pratoImagem.dominio.PratoImagem;
 import br.ufrpe.wanderlustapp.pontoImagem.dominio.PontoImagem;
 import br.ufrpe.wanderlustapp.pratoTipico.dominio.PratoTipico;
+import br.ufrpe.wanderlustapp.role.dominio.Role;
 import br.ufrpe.wanderlustapp.usuario.dominio.Usuario;
 
 public class Sessao {
@@ -36,6 +37,12 @@ public class Sessao {
     public void setPontoImagem(PontoImagem pontoImagem){setValue("sessao.PontoImagem", pontoImagem);}
 
     public PontoImagem getPontoImagem(){return (PontoImagem)values.get("sessao.PontoImagem");}
+
+    public void setRole(Role role){ setValue("sessao.Role", role);}
+
+    public Role getRole(){return (Role)values.get("sessao.Role");}
+
+    public void resetRole(){setRole(null);}
 
     public void resetPrato(){setPratoTipico(null);}
 
