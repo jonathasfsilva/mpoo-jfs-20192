@@ -32,6 +32,7 @@ import br.ufrpe.wanderlustapp.pratoTipico.gui.ListaPratosAvaliacao;
 import br.ufrpe.wanderlustapp.pratoTipico.gui.ListaPratosFavoritos;
 import br.ufrpe.wanderlustapp.pratoTipico.gui.OnItemClickListener;
 import br.ufrpe.wanderlustapp.pratoTipico.negocio.PratoTipicoServices;
+import br.ufrpe.wanderlustapp.role.gui.ListaRolesActivity;
 import br.ufrpe.wanderlustapp.usuario.dominio.Usuario;
 import br.ufrpe.wanderlustapp.usuario.gui.adapter.ListaPratosRecomendadosAdapter;
 
@@ -133,10 +134,15 @@ public class HomeActivity extends Activity implements
             startActivity(iniciarGerenciarPonto);
         }
         else if(RecyclerViewItemPosition == 5){
+            Intent iniciarGerenciarPonto =
+                    new Intent(HomeActivity.this, ListaRolesActivity.class);
+            startActivity(iniciarGerenciarPonto);
+        }
+        else if(RecyclerViewItemPosition == 6){
             Intent iniciarPerfil =
                     new Intent(HomeActivity.this, PerfilActivity.class);
             startActivity(iniciarPerfil);
-        }else if(RecyclerViewItemPosition == 6){
+        }else if(RecyclerViewItemPosition == 7){
             Sessao.instance.reset();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         }
@@ -249,6 +255,7 @@ public class HomeActivity extends Activity implements
         Tela.add("Pontos Turísticos");
         Tela.add("Gerenciar pratos");
         Tela.add("Gerenciar pontos");
+        Tela.add("Gerenciar rolês");
         Tela.add("Perfil");
         Tela.add("Sair");
     }
